@@ -11,27 +11,42 @@
   <header>
     <h1>🍳 RecipeJS</h1>
     <p>Your Functional Cooking Companion</p>
+
+    <!-- Search -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search recipes or ingredients..."
+        autocomplete="off"
+      />
+      <button id="clear-search" class="clear-btn">✕</button>
+    </div>
   </header>
 
   <main>
     <div class="controls">
       <div class="filters">
-        <button data-filter="all">All</button>
-        <button data-filter="easy">Easy</button>
-        <button data-filter="medium">Medium</button>
-        <button data-filter="hard">Hard</button>
-        <button data-filter="quick">Quick (&lt; 30 min)</button>
+        <button class="filter-btn" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="easy">Easy</button>
+        <button class="filter-btn" data-filter="medium">Medium</button>
+        <button class="filter-btn" data-filter="hard">Hard</button>
+        <button class="filter-btn" data-filter="quick">Quick (&lt; 30 min)</button>
+        <button class="filter-btn" data-filter="favorites">❤️ Favorites</button>
       </div>
 
       <div class="sort">
-        <button data-sort="name">Name (A–Z)</button>
-        <button data-sort="time">Time (Fastest)</button>
+        <button class="sort-btn" data-sort="name">Name (A–Z)</button>
+        <button class="sort-btn" data-sort="time">Time (Fastest)</button>
       </div>
     </div>
 
-    <div id="recipe-container">
-      <!-- Cards rendered by JS -->
+    <!-- Counter -->
+    <div class="recipe-info">
+      <p id="recipe-count">Showing 0 of 0 recipes</p>
     </div>
+
+    <div id="recipe-container"></div>
   </main>
 
   <script src="app.js"></script>
