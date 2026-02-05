@@ -13,7 +13,7 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   text-align: center;
   padding: 3rem 1.5rem;
@@ -27,6 +27,38 @@ header p {
   opacity: 0.9;
 }
 
+/* Search */
+.search-container {
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  position: relative;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+}
+
+#search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+
 /* Layout */
 main {
   max-width: 1200px;
@@ -37,20 +69,26 @@ main {
 .controls {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .controls button {
   padding: 0.5rem 1rem;
-  border: none;
   border-radius: 6px;
+  border: none;
   background: #667eea;
   color: white;
   cursor: pointer;
 }
 
+.recipe-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Cards */
 #recipe-container {
   display: flex;
   flex-wrap: wrap;
@@ -58,24 +96,34 @@ main {
   justify-content: center;
 }
 
-/* Recipe Card */
 .recipe-card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   padding: 1.5rem;
   width: 300px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.recipe-card h3 {
-  color: #667eea;
+.favorite-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
 }
 
 .recipe-meta {
   display: flex;
   gap: 1rem;
   margin: 0.75rem 0;
-  font-size: 0.9rem;
 }
 
 .difficulty {
@@ -89,7 +137,7 @@ main {
 .medium { background: #fff3cd; color: #856404; }
 .hard { background: #f8d7da; color: #721c24; }
 
-/* Toggle Buttons */
+/* Toggle */
 .card-actions {
   display: flex;
   gap: 0.5rem;
@@ -104,7 +152,7 @@ main {
   cursor: pointer;
 }
 
-/* Expandable Sections */
+/* Expandable */
 .ingredients-container,
 .steps-container {
   display: none;
@@ -114,8 +162,7 @@ main {
   border-radius: 8px;
 }
 
-.ingredients-container.visible,
-.steps-container.visible {
+.visible {
   display: block;
 }
 
@@ -139,7 +186,6 @@ main {
   margin-right: 0.5rem;
 }
 
-/* Substeps */
 .substeps-list {
   list-style: none;
   margin-left: 1.5rem;
@@ -150,4 +196,11 @@ main {
 .substeps-list li::before {
   content: "→ ";
   color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .recipe-card {
+    width: 100%;
+  }
 }
